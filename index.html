@@ -1,26 +1,178 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>七初表白墙</title>
-        <style>
-            #dwr{
-                background: #ffffff3b !important;
-                backdrop-filter: blur(20px) !important;
-                border-radius: 5%;
-                margin-left:50px;
-                width: 200px;
-                height: 100px;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body bgcolor="pink">
-        <img src="http://www.cdqzcz.com/Tpl/Images/logo.png" height="50px" width="250px">
-        投稿:微信17360279691 建议qq邮箱dwr_20110921@qq.com
-        <p style="font-size: 50px;color: white;border-top:0px;margin-top: 0px;">七初表白墙:</p>
-        <div id="dwr">
-            <a href="https://www.bilibili.com/video/BV1he4y1w7wB/?spm_id_from=333.337.search-card.all.click">我爱死作者了</a>
-        </div>
-    </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>川菜</title>
+  <style>
+    /* 全局样式：采用渐变背景增强层次 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #000, #222);
+      color: white;
+    }
+    
+    /* 固定头栏（半透明背景） */
+    header {
+      width: 100%;
+      height: 60px;
+      background-color: rgba(68,68,68,0.8);
+      color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* 主体内容，预留顶部空间 */
+    main {
+      margin-top: 80px;
+      padding: 20px;
+    }
+    
+    /* 展开容器（半透明背景及圆角） */
+    .expand-container {
+      width: 200px;
+      height: 50px;
+      background-color: rgba(51,51,51,0.8);
+      color: white;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      overflow: hidden;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      transition: height 0.3s ease;
+      border-radius: 8px;
+    }
+    
+    /* 鼠标悬停时容器展开 */
+    .expand-container:hover {
+      height: 200px;
+    }
+    
+    /* 展开后内容 */
+    .expand-content {
+      padding: 10px;
+      background-color: rgba(85,85,85,0.8);
+      color: #fff;
+      display: none;
+    }
+    
+    /* 悬停时显示展开内容 */
+    .expand-container:hover .expand-content {
+      display: block;
+    }
+    
+    /* 按钮/链接样式 */
+    .menu-link {
+      display: inline-block;
+      background-color: #FF5733;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+    
+    /* 主页区域：全屏并居中显示 */
+    #home {
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    /* Acrylic材质效果，用于文字介绍部分（放大容器） */
+    .acrylic {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 8px;
+      padding: 60px;
+      margin: 20px auto;
+      max-width: 1400px;  /* 最大宽度调整为 1400px */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* 酸菜鱼和麻婆豆腐区域：内容居中显示 */
+    #about, #mapo {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* 图片样式 */
+    img {
+      margin: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>川菜</h1>
+    <!-- 下拉菜单按钮 -->
+    <div class="expand-container">
+      菜单
+      <div class="expand-content">
+        <button class="menu-link" onclick="scrollToSection('about')">酸菜鱼</button>
+        <button class="menu-link" onclick="scrollToSection('mapo')">麻婆豆腐</button>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <!-- 主页区域 -->
+    <section id="home">
+      <h2>欢迎来到川菜世界</h2>
+      <p>在这里您可以探索川菜的魅力与美味。</p>
+      <!-- 跳转按钮 -->
+      <button class="menu-link" onclick="scrollToSection('about')">了解酸菜鱼</button>
+      <button class="menu-link" onclick="scrollToSection('mapo')">了解麻婆豆腐</button>
+    </section>
+    
+    <!-- 酸菜鱼介绍区域 -->
+    <section id="about">
+      <div class="acrylic">
+        <h2>酸菜鱼介绍</h2>
+        <p>酸菜鱼是川菜中的经典菜品。酸菜鱼以草鱼为主料，配以泡菜等食材煮制而成，口味酸辣可口。</p>
+        <p>自贡民间制作酸菜鱼，取材精细、调味独特，传承了地方风味和传统技艺。</p>
+        <img src="https://th.bing.com/th/id/OIP.5twX3O4lCsf26wjNwL-U3AHaHa?w=159&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" style="height: 200px;">
+        <img src="https://img0.baidu.com/it/u=1242079086,3216526500&fm=253&fmt=auto&app=120&f=JPEG?w=750&h=500" style="height: 200px;">
+      </div>
+    </section>
+    
+    <!-- 麻婆豆腐介绍区域 -->
+    <section id="mapo">
+      <div class="acrylic">
+        <h2>麻婆豆腐介绍</h2>
+        <p>麻婆豆腐是四川菜中的经典名菜，以豆腐、牛肉末（或猪肉末）为主料，辅以四川花椒与辣椒调制而成，麻辣鲜香。</p>
+        <p>这道菜不仅味道浓郁，而且色香味俱佳，完美体现了川菜的麻辣特色和传统烹饪技艺。</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Mapo_tofu.jpg" style="height: 200px;">
+      </div>
+    </section>
+  </main>
+  
+  <script>
+    function scrollToSection(id) {
+      var element = document.getElementById(id);
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
 </html>
